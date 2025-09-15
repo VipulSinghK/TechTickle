@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export default function Mobiledev() {
+export default function AIML() {
   const [openStep, setOpenStep] = useState(null);
 
   // Animation variants
@@ -24,68 +24,68 @@ export default function Mobiledev() {
   const roadmapSteps = [
     {
       title: "Prerequisites",
-      description: "Build a foundation for mobile app development.",
+      description: "Build a foundation for AI and machine learning.",
       details: [
-        "Understand basic programming concepts (variables, loops, functions).",
-        "Learn about mobile OS ecosystems (iOS and Android).",
-        "Get familiar with a code editor (e.g., VS Code or Android Studio)."
+        "Learn basic programming with Python (variables, loops, functions).",
+        "Understand fundamental math (linear algebra, calculus, probability).",
+        "Get familiar with Jupyter Notebooks for experimentation.",
       ],
       resources: [
-        { name: "CS50: Introduction to Programming", url: "https://www.edx.org/course/cs50s-introduction-to-computer-science" },
-        { name: "Google: Android Basics", url: "https://developer.android.com/courses/android-basics-kotlin/course" },
+        { name: "Python.org: Getting Started", url: "https://www.python.org/about/gettingstarted/" },
+        { name: "Khan Academy: Linear Algebra", url: "https://www.khanacademy.org/math/linear-algebra" },
+        { name: "Jupyter: Getting Started", url: "https://jupyter.org/install" },
       ],
     },
     {
       title: "Core Concepts",
-      description: "Learn the fundamentals of mobile app development.",
+      description: "Master the fundamentals of machine learning.",
       details: [
-        "Explore UI design principles for mobile (layouts, navigation).",
-        "Understand cross-platform frameworks like React Native or Flutter.",
-        "Learn native development with Swift (iOS) or Kotlin (Android)."
+        "Learn data preprocessing (cleaning, normalization, encoding).",
+        "Understand supervised vs. unsupervised learning.",
+        "Explore basic algorithms (linear regression, decision trees).",
       ],
       resources: [
-        { name: "React Native Documentation", url: "https://reactnative.dev/docs/getting-started" },
-        { name: "Flutter Get Started", url: "https://flutter.dev/docs/get-started" },
-        { name: "Apple: Swift Tutorials", url: "https://developer.apple.com/tutorials/swiftui" },
+        { name: "Coursera: Machine Learning by Andrew Ng", url: "https://www.coursera.org/learn/machine-learning" },
+        { name: "scikit-learn: Tutorials", url: "https://scikit-learn.org/1.4/tutorial/index.html" },
       ],
     },
     {
       title: "Tools Setup",
-      description: "Set up your mobile development environment.",
+      description: "Set up your AI/ML development environment.",
       details: [
-        "Install Android Studio for Android development or Xcode for iOS.",
-        "Set up emulators or connect physical devices for testing.",
-        "Use npm or Yarn for managing dependencies in cross-platform projects."
+        "Install Python and libraries like NumPy, pandas, and scikit-learn.",
+        "Set up TensorFlow or PyTorch for deep learning.",
+        "Use cloud platforms like Google Colab for GPU access.",
       ],
       resources: [
-        { name: "Android Studio Download", url: "https://developer.android.com/studio" },
-        { name: "Xcode Download", url: "https://developer.apple.com/xcode/" },
+        { name: "Anaconda: Python Distribution", url: "https://www.anaconda.com/products/distribution" },
+        { name: "Google Colab", url: "https://colab.research.google.com/" },
       ],
     },
     {
       title: "Project Builds",
-      description: "Apply your skills to practical mobile projects.",
+      description: "Apply your skills to practical AI/ML projects.",
       details: [
-        "Build a simple note-taking app with local storage.",
-        "Create a weather app using a public API.",
-        "Develop a basic chat app with real-time updates."
+        "Build a simple linear regression model for price prediction.",
+        "Create an image classifier using a pre-trained model.",
+        "Develop a basic chatbot with natural language processing.",
       ],
       resources: [
-        { name: "Expo: React Native Projects", url: "https://docs.expo.dev/tutorial/build-a-project/" },
-        { name: "Flutter: Sample Apps", url: "https://flutter.dev/docs/cookbook" },
+        { name: "Kaggle: Datasets and Tutorials", url: "https://www.kaggle.com/learn" },
+        { name: "TensorFlow: Tutorials", url: "https://www.tensorflow.org/tutorials" },
       ],
     },
     {
       title: "Advanced Topics",
-      description: "Dive into advanced mobile development techniques.",
+      description: "Explore advanced AI/ML techniques.",
       details: [
-        "Implement push notifications and deep linking.",
-        "Optimize app performance for battery and memory usage.",
-        "Integrate with backend services using REST or GraphQL."
+        "Learn deep learning with neural networks (CNNs, RNNs).",
+        "Understand model deployment with Flask or FastAPI.",
+        "Explore generative AI (e.g., GANs, transformers).",
       ],
       resources: [
-        { name: "Firebase: Push Notifications", url: "https://firebase.google.com/docs/cloud-messaging" },
-        { name: "GraphQL: Apollo Client", url: "https://www.apollographql.com/docs/react/" },
+        { name: "PyTorch: Deep Learning Tutorials", url: "https://pytorch.org/tutorials/" },
+        { name: "FastAPI: Documentation", url: "https://fastapi.tiangolo.com/" },
       ],
     },
   ];
@@ -93,44 +93,44 @@ export default function Mobiledev() {
   // Tools data
   const tools = [
     {
-      title: "Android Studio",
-      description: "The official IDE for Android app development with emulators and tools.",
-      link: "https://developer.android.com/studio",
-      icon: "🤖",
+      title: "Anaconda",
+      description: "A Python distribution with tools for data science and ML.",
+      link: "https://www.anaconda.com/products/distribution",
+      icon: "🐍",
     },
     {
-      title: "Xcode",
-      description: "Apple’s IDE for iOS development with SwiftUI and simulators.",
-      link: "https://developer.apple.com/xcode/",
-      icon: "🍎",
+      title: "TensorFlow",
+      description: "An open-source framework for building ML models.",
+      link: "https://www.tensorflow.org/",
+      icon: "🧠",
     },
     {
-      title: "Expo",
-      description: "A framework for building React Native apps with easy setup.",
-      link: "https://expo.dev/",
-      icon: "🚀",
+      title: "Google Colab",
+      description: "A cloud-based platform for running Python with GPU support.",
+      link: "https://colab.research.google.com/",
+      icon: "☁️",
     },
   ];
 
   // Sample projects data
   const sampleProjects = [
     {
-      title: "Note-Taking App",
-      description: "Create a mobile app to manage notes with local storage.",
-      link: "/resources/projects/note-taking",
-      illustration: "https://illustrations.popsy.co/red/podcast-listening.svg",
+      title: "Price Prediction Model",
+      description: "Build a model to predict prices using linear regression.",
+      link: "/resources/projects/price-prediction",
+      illustration: "https://illustrations.popsy.co/purple/calculator.svg",
     },
     {
-      title: "Weather App",
-      description: "Build an app that fetches real-time weather data from an API.",
-      link: "/resources/projects/weather",
-      illustration: "https://illustrations.popsy.co/red/working-vacation.svg",
+      title: "Image Classifier",
+      description: "Create an app to classify images with a neural network.",
+      link: "/resources/projects/image-classifier",
+      illustration: "https://illustrations.popsy.co/purple/looking-at-the-map.svg",
     },
     {
-      title: "Chat App",
-      description: "Develop a real-time chat app with basic messaging features.",
-      link: "/resources/projects/chat",
-      illustration: "https://illustrations.popsy.co/red/video-call.svg",
+      title: "Chatbot",
+      description: "Develop a basic chatbot with NLP capabilities.",
+      link: "/resources/projects/chatbot",
+      illustration: "https://illustrations.popsy.co/purple/man-on-laptop-twitch.svg",
     },
   ];
 
@@ -157,20 +157,20 @@ export default function Mobiledev() {
             variants={childVariants}
             className="text-5xl md:text-6xl font-bold font-roboto"
           >
-            Mobile Development Roadmap
+            AI/ML Development Roadmap
           </motion.h1>
           <motion.p
             variants={childVariants}
             className="text-lg md:text-xl max-w-2xl mx-auto"
           >
-            Your step-by-step guide to building modern mobile applications, from cross-platform to native development.
+            Your step-by-step guide to building intelligent applications with artificial intelligence and machine learning.
           </motion.p>
           <motion.div
             variants={childVariants}
             whileHover={{ scale: 1.1, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.2)" }}
             whileTap={{ scale: 0.95 }}
           >
-  
+
           </motion.div>
         </motion.div>
       </section>
@@ -296,7 +296,7 @@ export default function Mobiledev() {
                   className="text-indigo-600 font-semibold hover:underline"
                   aria-label={`Visit ${tool.title}`}
                 >
-                  Download  →
+                  Download →
                 </a>
               </motion.div>
             ))}
@@ -366,10 +366,10 @@ export default function Mobiledev() {
             variants={childVariants}
             className="text-4xl font-bold font-roboto"
           >
-            Ready to Build Your First Mobile App?
+            Ready to Build Your First AI/ML Model?
           </motion.h2>
           <motion.p variants={childVariants} className="text-lg">
-            Join our community and start creating today!
+            Join our community and start creating intelligent applications today!
           </motion.p>
           <motion.div
             variants={childVariants}

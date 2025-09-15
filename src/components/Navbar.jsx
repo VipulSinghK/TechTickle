@@ -26,11 +26,11 @@ const Navbar = () => {
   const roadmapDropdown = [
     { name: "Web Development", path: "/Webdev" },
     { name: "Mobile Development", path: "/Mobiledev" },
-    { name: "AI/ML Development", path: "/roadmaps/ai" },
+    { name: "AI/ML Development", path: "/AIML" },
   ];
 
   const resourcesDropdown = [
-    { name: "Tools", path: "/resources/tools" },
+    { name: "Tools", path: "/Tools" },
     { name: "Docs & Guides", path: "/resources/docs" },
     { name: "Starter Projects", path: "/resources/projects" },
   ];

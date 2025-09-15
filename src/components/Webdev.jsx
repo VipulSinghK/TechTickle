@@ -170,13 +170,7 @@ export default function Webdev() {
             whileHover={{ scale: 1.1, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.2)" }}
             whileTap={{ scale: 0.95 }}
           >
-            <Link
-              to="#roadmap-steps"
-              className="px-8 py-4 bg-amber-300 text-indigo-900 rounded-full shadow-lg font-semibold hover:bg-amber-400 transition-colors duration-300 contrast-125"
-              aria-label="Explore the web development roadmap"
-            >
-              Get Started 🚀
-            </Link>
+ 
           </motion.div>
         </motion.div>
       </section>

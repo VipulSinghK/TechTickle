@@ -62,7 +62,7 @@ export default function Home() {
     {
       title: "AI/ML Development",
       description: "Dive into machine learning with Python, TensorFlow, and practical projects.",
-      link: "/roadmaps/ai",
+      link: "/AIML",
       icon: "🤖",
       illustration: "https://illustrations.popsy.co/amber/designer.svg",
     },
@@ -176,11 +176,11 @@ export default function Home() {
               whileTap={{ scale: 0.95 }}
             >
               <Link
-                to="/roadmaps/web"
+                to="/Webdev"
                 className="px-8 py-4 bg-amber-300 text-indigo-900 rounded-full shadow-lg font-semibold hover:bg-amber-400 transition-colors duration-300 contrast-125"
                 aria-label="Start learning with roadmaps"
               >
-                Start Learning 🚀
+                Start Learning 
               </Link>
             </motion.div>
             <motion.div

@@ -9,6 +9,8 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import Webdev from './components/Webdev'
 import Mobiledev from './components/Mobiledev'
+import AIML from './components/AIML'
+import Tools from './components/Tools'
 
 const App = () => {
   return (
@@ -23,6 +25,8 @@ const App = () => {
           <Route path="/Signup" element={<Signup/>} />
           <Route path="/WebDev" element={<Webdev/>} />
           <Route path="/Mobiledev" element={<Mobiledev/>} />
+          <Route path="/AIML" element={<AIML/>} />
+          <Route path="/Tools" element={<Tools/>} />
         </Routes>
       </div>
     </Router>
