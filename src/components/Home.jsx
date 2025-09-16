@@ -19,7 +19,7 @@ export default function Home() {
     } else if (index === fullText.length) {
       setIsComplete(true);
     }
-  }, [index, fullText, isComplete]);
+  }, [index, isComplete]);
 
   // Reset typewriter on component mount
   useEffect(() => {
@@ -41,6 +41,11 @@ export default function Home() {
   const childVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
   };
 
   // Roadmap data
@@ -65,6 +70,25 @@ export default function Home() {
       link: "/AIML",
       icon: "🤖",
       illustration: "https://illustrations.popsy.co/amber/designer.svg",
+    },
+  ];
+
+  // Why Choose TechTickle data
+  const whyChoose = [
+    {
+      title: "Structured Learning Paths",
+      description: "Follow expertly curated roadmaps tailored for beginners to advanced developers.",
+      icon: "🗺️",
+    },
+    {
+      title: "Hands-On Projects",
+      description: "Build real-world applications to apply your skills and boost your portfolio.",
+      icon: "🛠️",
+    },
+    {
+      title: "Supportive Community",
+      description: "Join a global network of learners and mentors for collaboration and support.",
+      icon: "🤝",
     },
   ];
 
@@ -152,7 +176,7 @@ export default function Home() {
             animate="visible"
             className="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight font-roboto"
           >
-            Welcome to <span className="text-amber-300">TechTickle</span> 
+            Welcome to <span className="text-amber-300">TechTickle</span>
           </motion.h1>
           <motion.p
             variants={childVariants}
@@ -174,19 +198,31 @@ export default function Home() {
               variants={childVariants}
               whileHover={{ scale: 1.1, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.2)" }}
               whileTap={{ scale: 0.95 }}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  window.location.href = "/Webdev";
+                }
+              }}
             >
               <Link
                 to="/Webdev"
                 className="px-8 py-4 bg-amber-300 text-indigo-900 rounded-full shadow-lg font-semibold hover:bg-amber-400 transition-colors duration-300 contrast-125"
                 aria-label="Start learning with roadmaps"
               >
-                Start Learning 
+                Start Learning
               </Link>
             </motion.div>
             <motion.div
               variants={childVariants}
               whileHover={{ scale: 1.1, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.2)" }}
               whileTap={{ scale: 0.95 }}
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  window.location.href = "/resources/tools";
+                }
+              }}
             >
               <Link
                 to="/resources/tools"
@@ -210,6 +246,7 @@ export default function Home() {
             src="https://illustrations.popsy.co/amber/studying.svg"
             alt="Illustration of a person learning technology"
             className="w-3/4 md:w-2/3 max-w-md drop-shadow-2xl"
+            onError={() => console.error("Failed to load hero image")}
           />
         </motion.div>
       </section>
@@ -228,7 +265,7 @@ export default function Home() {
             className="text-4xl font-bold text-indigo-900 mb-12 font-roboto"
             id="roadmaps-section"
           >
-            Start Your Learning Journey 
+            Start Your Learning Journey
           </motion.h2>
           <motion.div
             variants={staggerVariants}
@@ -248,6 +285,7 @@ export default function Home() {
                   src={roadmap.illustration}
                   alt={`Illustration for ${roadmap.title}`}
                   className="w-full h-32 object-contain mb-4"
+                  onError={() => console.error(`Failed to load image: ${roadmap.illustration}`)}
                 />
                 <div className="text-4xl mb-4">{roadmap.icon}</div>
                 <h3 className="text-xl font-semibold mb-2 font-roboto">{roadmap.title}</h3>
@@ -259,6 +297,50 @@ export default function Home() {
                 >
                   View Roadmap →
                 </Link>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+      </section>
+
+      {/* Why Choose TechTickle Section */}
+      <section className="py-20 px-6 bg-white">
+        <motion.div
+          variants={sectionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="max-w-7xl mx-auto text-center"
+        >
+          <motion.h2
+            variants={childVariants}
+            className="text-4xl md:text-5xl font-bold font-poppins text-indigo-900 mb-12"
+          >
+            Why Choose TechTickle?
+          </motion.h2>
+          <motion.p
+            variants={childVariants}
+            className="text-lg md:text-xl max-w-4xl mx-auto font-open-sans text-gray-700 mb-12"
+          >
+            TechTickle is more than a learning platform—it's a community-driven ecosystem designed to empower aspiring developers with structured guidance, practical projects, and unparalleled support.
+          </motion.p>
+          <motion.div
+            variants={staggerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          >
+            {whyChoose.map((item, i) => (
+              <motion.div
+                key={i}
+                variants={cardVariants}
+                whileHover={{ scale: 1.05, boxShadow: "0px 12px 32px rgba(0, 0, 0, 0.15)" }}
+                className="bg-gray-100 p-8 rounded-xl shadow-lg"
+              >
+                <div className="text-5xl mb-4 font-roboto text-indigo-600">{item.icon}</div>
+                <h3 className="text-xl font-semibold font-poppins text-indigo-900 mb-4">{item.title}</h3>
+                <p className="text-gray-600 font-open-sans">{item.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -414,6 +496,12 @@ export default function Home() {
             variants={childVariants}
             whileHover={{ scale: 1.1, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.2)" }}
             whileTap={{ scale: 0.95 }}
+            tabIndex={0}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                window.location.href = "/login";
+              }
+            }}
           >
             <Link
               to="/login"

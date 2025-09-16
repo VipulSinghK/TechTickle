@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar'
@@ -12,8 +12,24 @@ import Mobiledev from './components/Mobiledev'
 import AIML from './components/AIML'
 import Tools from './components/Tools'
 import Ourmission from './components/Ourmission'
+import Loader from './components/Loading'  
 
 const App = () => {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate loading delay (e.g., API calls, assets, etc.)
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // 2 sec
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;   // 
+  }
+
   return (
     <Router>
       <Navbar />
@@ -22,13 +38,13 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/about/*" element={<About />} />
           <Route path="/projects/*" element={<Projects />} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/Signup" element={<Signup/>} />
-          <Route path="/WebDev" element={<Webdev/>} />
-          <Route path="/Mobiledev" element={<Mobiledev/>} />
-          <Route path="/AIML" element={<AIML/>} />
-          <Route path="/Tools" element={<Tools/>} />
-          <Route path="/Ourmission" element={<Ourmission/>} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/webdev" element={<Webdev />} />
+          <Route path="/mobiledev" element={<Mobiledev />} />
+          <Route path="/aiml" element={<AIML />} />
+          <Route path="/tools" element={<Tools />} />
+          <Route path="/ourmission" element={<Ourmission />} />
         </Routes>
       </div>
     </Router>
