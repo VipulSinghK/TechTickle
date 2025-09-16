@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -28,24 +29,28 @@ export default function Tools() {
           description: "A powerful code editor with extensions for web development.",
           link: "https://code.visualstudio.com/",
           icon: "🛠️",
+          iconUrl: "https://www.svgrepo.com/show/452129/vs-code.svg",
         },
         {
           title: "Chrome DevTools",
           description: "Inspect and debug web applications in real-time.",
           link: "https://developer.chrome.com/docs/devtools/",
           icon: "🔍",
+          iconUrl: "https://www.google.com/chrome/static/images/chrome-logo.svg",
         },
         {
           title: "GitHub",
           description: "Host your code and collaborate with others.",
           link: "https://github.com/",
           icon: "📦",
+          iconUrl: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
         },
         {
           title: "Postman",
           description: "Test and document APIs for web applications.",
           link: "https://www.postman.com/",
           icon: "📡",
+          iconUrl: "https://www.svgrepo.com/show/354202/postman-icon.svg",
         },
       ],
     },
@@ -58,18 +63,21 @@ export default function Tools() {
           description: "The official IDE for Android app development with emulators.",
           link: "https://developer.android.com/studio",
           icon: "🤖",
+          iconUrl: "https://www.svgrepo.com/show/475631/android-color.svg",
         },
         {
           title: "Xcode",
           description: "Apple’s IDE for iOS development with SwiftUI and simulators.",
           link: "https://developer.apple.com/xcode/",
           icon: "🍎",
+          iconUrl: "https://www.svgrepo.com/show/511330/apple-173.svg",
         },
         {
           title: "Expo",
           description: "A framework for building React Native apps with easy setup.",
           link: "https://expo.dev/",
           icon: "🚀",
+          iconUrl: "https://www.svgrepo.com/show/353723/expo-icon.svg",
         },
       ],
     },
@@ -82,24 +90,28 @@ export default function Tools() {
           description: "A Python distribution with tools for data science and ML.",
           link: "https://www.anaconda.com/products/distribution",
           icon: "🐍",
+          iconUrl: "https://www.svgrepo.com/show/473533/anaconda.svg",
         },
         {
           title: "TensorFlow",
           description: "An open-source framework for building ML models.",
           link: "https://www.tensorflow.org/",
           icon: "🧠",
+          iconUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/1200px-Tensorflow_logo.svg.png",
         },
         {
           title: "Google Colab",
           description: "A cloud-based platform for running Python with GPU support.",
           link: "https://colab.research.google.com/",
           icon: "☁️",
+          iconUrl: "https://www.svgrepo.com/show/303108/google-icon-logo.svg",
         },
         {
           title: "Jupyter Notebook",
           description: "An interactive environment for coding and visualizing data.",
           link: "https://jupyter.org/",
           icon: "📓",
+          iconUrl: "https://www.svgrepo.com/show/353949/jupyter.svg",
         },
       ],
     },
@@ -137,7 +149,6 @@ export default function Tools() {
             whileHover={{ scale: 1.1, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.2)" }}
             whileTap={{ scale: 0.95 }}
           >
-            
           </motion.div>
         </motion.div>
       </section>
@@ -186,7 +197,12 @@ export default function Tools() {
                     whileHover={{ scale: 1.05, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.1)" }}
                     className="bg-gray-100 p-6 rounded-xl shadow-md"
                   >
-                    <div className="text-4xl mb-4">{tool.icon}</div>
+                    <img
+                      src={tool.iconUrl}
+                      alt={`${tool.title} logo`}
+                      className="w-16 h-16 object-contain mb-4 mx-auto"
+                      onError={(e) => (e.target.src = "https://via.placeholder.com/64?text=Logo")}
+                    />
                     <h4 className="text-xl font-semibold mb-2 font-roboto">{tool.title}</h4>
                     <p className="text-gray-600 mb-4">{tool.description}</p>
                     <a

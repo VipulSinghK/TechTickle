@@ -11,6 +11,7 @@ import Webdev from './components/Webdev'
 import Mobiledev from './components/Mobiledev'
 import AIML from './components/AIML'
 import Tools from './components/Tools'
+import Ourmission from './components/Ourmission'
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/Mobiledev" element={<Mobiledev/>} />
           <Route path="/AIML" element={<AIML/>} />
           <Route path="/Tools" element={<Tools/>} />
+          <Route path="/Ourmission" element={<Ourmission/>} />
         </Routes>
       </div>
     </Router>

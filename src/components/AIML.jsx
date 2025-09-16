@@ -90,25 +90,25 @@ export default function AIML() {
     },
   ];
 
-  // Tools data
+  // Updated tools array with reliable logo URLs
   const tools = [
     {
       title: "Anaconda",
       description: "A Python distribution with tools for data science and ML.",
       link: "https://www.anaconda.com/products/distribution",
-      icon: "🐍",
+      iconUrl: "https://www.svgrepo.com/show/473533/anaconda.svg",
     },
     {
       title: "TensorFlow",
       description: "An open-source framework for building ML models.",
       link: "https://www.tensorflow.org/",
-      icon: "🧠",
+      iconUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/1200px-Tensorflow_logo.svg.png",
     },
     {
       title: "Google Colab",
       description: "A cloud-based platform for running Python with GPU support.",
       link: "https://colab.research.google.com/",
-      icon: "☁️",
+      iconUrl: "https://www.svgrepo.com/show/303108/google-icon-logo.svg",
     },
   ];
 
@@ -286,7 +286,11 @@ export default function AIML() {
                 whileHover={{ scale: 1.05, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.1)" }}
                 className="bg-white p-6 rounded-xl shadow-md"
               >
-                <div className="text-4xl mb-4">{tool.icon}</div>
+                <img
+                  src={tool.iconUrl}
+                  alt={`${tool.title} logo`}
+                  className="w-16 h-16 object-contain mb-4 mx-auto"
+                />
                 <h3 className="text-xl font-semibold mb-2 font-roboto">{tool.title}</h3>
                 <p className="text-gray-600 mb-4">{tool.description}</p>
                 <a

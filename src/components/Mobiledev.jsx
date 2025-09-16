@@ -1,3 +1,4 @@
+
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -28,7 +29,7 @@ export default function Mobiledev() {
       details: [
         "Understand basic programming concepts (variables, loops, functions).",
         "Learn about mobile OS ecosystems (iOS and Android).",
-        "Get familiar with a code editor (e.g., VS Code or Android Studio)."
+        "Get familiar with a code editor (e.g., VS Code or Android Studio).",
       ],
       resources: [
         { name: "CS50: Introduction to Programming", url: "https://www.edx.org/course/cs50s-introduction-to-computer-science" },
@@ -41,7 +42,7 @@ export default function Mobiledev() {
       details: [
         "Explore UI design principles for mobile (layouts, navigation).",
         "Understand cross-platform frameworks like React Native or Flutter.",
-        "Learn native development with Swift (iOS) or Kotlin (Android)."
+        "Learn native development with Swift (iOS) or Kotlin (Android).",
       ],
       resources: [
         { name: "React Native Documentation", url: "https://reactnative.dev/docs/getting-started" },
@@ -55,7 +56,7 @@ export default function Mobiledev() {
       details: [
         "Install Android Studio for Android development or Xcode for iOS.",
         "Set up emulators or connect physical devices for testing.",
-        "Use npm or Yarn for managing dependencies in cross-platform projects."
+        "Use npm or Yarn for managing dependencies in cross-platform projects.",
       ],
       resources: [
         { name: "Android Studio Download", url: "https://developer.android.com/studio" },
@@ -68,7 +69,7 @@ export default function Mobiledev() {
       details: [
         "Build a simple note-taking app with local storage.",
         "Create a weather app using a public API.",
-        "Develop a basic chat app with real-time updates."
+        "Develop a basic chat app with real-time updates.",
       ],
       resources: [
         { name: "Expo: React Native Projects", url: "https://docs.expo.dev/tutorial/build-a-project/" },
@@ -81,7 +82,7 @@ export default function Mobiledev() {
       details: [
         "Implement push notifications and deep linking.",
         "Optimize app performance for battery and memory usage.",
-        "Integrate with backend services using REST or GraphQL."
+        "Integrate with backend services using REST or GraphQL.",
       ],
       resources: [
         { name: "Firebase: Push Notifications", url: "https://firebase.google.com/docs/cloud-messaging" },
@@ -90,25 +91,25 @@ export default function Mobiledev() {
     },
   ];
 
-  // Tools data
+  // Updated tools array with reliable logo URLs
   const tools = [
     {
       title: "Android Studio",
       description: "The official IDE for Android app development with emulators and tools.",
       link: "https://developer.android.com/studio",
-      icon: "🤖",
+      iconUrl: "https://www.svgrepo.com/show/475631/android-color.svg",
     },
     {
       title: "Xcode",
       description: "Apple’s IDE for iOS development with SwiftUI and simulators.",
       link: "https://developer.apple.com/xcode/",
-      icon: "🍎",
+      iconUrl: "https://www.svgrepo.com/show/511330/apple-173.svg",
     },
     {
       title: "Expo",
       description: "A framework for building React Native apps with easy setup.",
       link: "https://expo.dev/",
-      icon: "🚀",
+      iconUrl: "https://www.svgrepo.com/show/353723/expo-icon.svg",
     },
   ];
 
@@ -140,28 +141,29 @@ export default function Mobiledev() {
 
   return (
     <div className="bg-gray-50">
-      {/* Hero Section */}
-      <section className="relative py-20 px-6 bg-gradient-to-br from-indigo-500 via-teal-400 to-pink-500 text-white text-center">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
-          <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
-        </div>
+  {/* Hero Section */}
+  <section className="relative py-20 px-6 text-white text-center bg-[url('https://wallpapercave.com/wp/PgCwufr.jpg')] bg-cover bg-center">
+    <div className="absolute inset-0 bg-black/40 z-0"></div>
+    <div className="absolute inset-0 pointer-events-none z-0">
+      <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
+      <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+    </div>
 
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          animate="visible"
-          className="max-w-7xl mx-auto space-y-6 z-10"
-        >
-          <motion.h1
-            variants={childVariants}
-            className="text-5xl md:text-6xl font-bold font-roboto"
-          >
-            Mobile Development Roadmap
-          </motion.h1>
-          <motion.p
-            variants={childVariants}
-            className="text-lg md:text-xl max-w-2xl mx-auto"
+    <motion.div
+      variants={sectionVariants}
+      initial="hidden"
+      animate="visible"
+      className="max-w-7xl mx-auto space-y-6 relative z-10"
+    >
+      <motion.h1
+        variants={childVariants}
+        className="text-5xl md:text-6xl font-bold font-roboto"
+      >
+        Mobile Development Roadmap
+      </motion.h1>
+      <motion.p
+        variants={childVariants}
+        className="text-lg md:text-xl max-w-2xl mx-auto"
           >
             Your step-by-step guide to building modern mobile applications, from cross-platform to native development.
           </motion.p>
@@ -170,7 +172,6 @@ export default function Mobiledev() {
             whileHover={{ scale: 1.1, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.2)" }}
             whileTap={{ scale: 0.95 }}
           >
-  
           </motion.div>
         </motion.div>
       </section>
@@ -286,7 +287,12 @@ export default function Mobiledev() {
                 whileHover={{ scale: 1.05, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.1)" }}
                 className="bg-white p-6 rounded-xl shadow-md"
               >
-                <div className="text-4xl mb-4">{tool.icon}</div>
+                <img
+                  src={tool.iconUrl}
+                  alt={`${tool.title} logo`}
+                  className="w-16 h-16 object-contain mb-4 mx-auto"
+                  onError={(e) => (e.target.src = "https://via.placeholder.com/64?text=Logo")}
+                />
                 <h3 className="text-xl font-semibold mb-2 font-roboto">{tool.title}</h3>
                 <p className="text-gray-600 mb-4">{tool.description}</p>
                 <a
@@ -296,7 +302,7 @@ export default function Mobiledev() {
                   className="text-indigo-600 font-semibold hover:underline"
                   aria-label={`Visit ${tool.title}`}
                 >
-                  Download  →
+                  Download →
                 </a>
               </motion.div>
             ))}

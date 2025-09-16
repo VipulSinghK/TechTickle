@@ -73,7 +73,7 @@ export default function Home() {
     {
       title: "Coding Tools",
       description: "Explore IDEs, version control, and debugging tools to streamline your workflow.",
-      link: "/resources/tools",
+      link: "/Tools",
       icon: "🛠️",
     },
     {
@@ -228,7 +228,7 @@ export default function Home() {
             className="text-4xl font-bold text-indigo-900 mb-12 font-roboto"
             id="roadmaps-section"
           >
-            Start Your Learning Journey 🚀
+            Start Your Learning Journey 
           </motion.h2>
           <motion.div
             variants={staggerVariants}

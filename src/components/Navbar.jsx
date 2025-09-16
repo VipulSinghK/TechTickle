@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -37,7 +38,7 @@ const Navbar = () => {
 
   const aboutDropdown = [
     { name: "Our Team", path: "/about/team" },
-    { name: "Our Mission", path: "/about/mission" },
+    { name: "Our Mission", path: "/Ourmission" },
     { name: "History", path: "/about/history" },
   ];
 
@@ -49,14 +50,25 @@ const Navbar = () => {
     <nav className="bg-white shadow-lg fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
-        <motion.h1
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl font-bold text-indigo-600 font-roboto"
-        >
-          <Link to="/" aria-label="TechTickle Home">TechTickle</Link>
-        </motion.h1>
+        <motion.div
+  initial={{ opacity: 0, x: -20 }}
+  animate={{ opacity: 1, x: 0 }}
+  transition={{ duration: 0.5 }}
+  className="h-8 flex items-center" // Keep navbar height small
+>
+  <Link to="/" aria-label="TechTickle Home">
+    <img
+      src="/images/techtickle-logo.png"
+      alt="TechTickle Logo"
+      className="h-16 w-auto max-w-[200px] object-contain" // Bigger logo but independent of parent height
+      onError={(e) =>
+        (e.target.src =
+          "https://via.placeholder.com/200x48?text=TechTickle+Logo")
+      }
+    />
+  </Link>
+</motion.div>
+
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-8 items-center">
@@ -365,16 +377,16 @@ const Navbar = () => {
       </AnimatePresence>
 
       {/* Inline CSS for Font */}
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
-          .font-roboto {
-            font-family: 'Roboto', sans-serif;
-          }
-        `}
-      </style>
-    </nav>
-  );
+<style>
+  {`
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+    .font-roboto {
+      font-family: 'Roboto', sans-serif;
+    }
+  `}
+</style>
+</nav>
+);
 };
 
 export default Navbar;

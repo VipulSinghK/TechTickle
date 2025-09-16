@@ -28,7 +28,7 @@ export default function Webdev() {
       details: [
         "Learn basic computer literacy and file management.",
         "Get familiar with using a text editor (e.g., VS Code).",
-        "Understand how the internet and browsers work."
+        "Understand how the internet and browsers work.",
       ],
       resources: [
         { name: "MDN Web Docs: Getting Started", url: "https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web" },
@@ -41,7 +41,7 @@ export default function Webdev() {
       details: [
         "HTML: Structure content with semantic tags.",
         "CSS: Style layouts with Flexbox, Grid, and responsive design.",
-        "JavaScript: Add interactivity with DOM manipulation and events."
+        "JavaScript: Add interactivity with DOM manipulation and events.",
       ],
       resources: [
         { name: "W3Schools: HTML Tutorial", url: "https://www.w3schools.com/html/" },
@@ -55,7 +55,7 @@ export default function Webdev() {
       details: [
         "Install VS Code and useful extensions (e.g., Prettier, Live Server).",
         "Learn Git for version control and GitHub for collaboration.",
-        "Use npm for package management and build tools."
+        "Use npm for package management and build tools.",
       ],
       resources: [
         { name: "VS Code Download", url: "https://code.visualstudio.com/" },
@@ -68,7 +68,7 @@ export default function Webdev() {
       details: [
         "Build a personal portfolio website.",
         "Create a to-do list app with JavaScript.",
-        "Develop a simple e-commerce landing page."
+        "Develop a simple e-commerce landing page.",
       ],
       resources: [
         { name: "CodePen: Project Ideas", url: "https://codepen.io/collection/nNzwDM" },
@@ -81,7 +81,7 @@ export default function Webdev() {
       details: [
         "Learn React for building single-page applications.",
         "Understand REST APIs and fetch data with JavaScript.",
-        "Explore Node.js and Express for backend development."
+        "Explore Node.js and Express for backend development.",
       ],
       resources: [
         { name: "React Documentation", url: "https://react.dev/" },
@@ -90,25 +90,28 @@ export default function Webdev() {
     },
   ];
 
-  // Tools data
+  // Updated tools array with iconUrl for logos
   const tools = [
     {
       title: "VS Code",
       description: "A powerful code editor with extensions for web development.",
       link: "https://code.visualstudio.com/",
       icon: "🛠️",
+      iconUrl: "https://www.svgrepo.com/show/452129/vs-code.svg",
     },
     {
       title: "Chrome DevTools",
       description: "Inspect and debug your web applications in real-time.",
       link: "https://developer.chrome.com/docs/devtools/",
       icon: "🔍",
+      iconUrl: "https://www.svgrepo.com/show/475640/chrome-color.svg",
     },
     {
       title: "GitHub",
       description: "Host your code and collaborate with others.",
       link: "https://github.com/",
       icon: "📦",
+      iconUrl: "https://www.svgrepo.com/show/512317/github-142.svg",
     },
   ];
 
@@ -141,7 +144,9 @@ export default function Webdev() {
   return (
     <div className="bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-20 px-6 bg-gradient-to-br from-indigo-500 via-teal-400 to-pink-500 text-white text-center">
+      <section 
+        className="relative py-20 px-6 bg-gradient-to-br from-indigo-500 via-teal-400 to-pink-500 text-white text-center bg-[url('https://wallpapercave.com/wp/wp8903994.png')] bg-cover bg-center bg-blend-overlay"
+      >
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
           <div className="absolute inset-0 animate-pulse bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
@@ -170,7 +175,6 @@ export default function Webdev() {
             whileHover={{ scale: 1.1, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.2)" }}
             whileTap={{ scale: 0.95 }}
           >
- 
           </motion.div>
         </motion.div>
       </section>
@@ -286,7 +290,12 @@ export default function Webdev() {
                 whileHover={{ scale: 1.05, boxShadow: "0px 8px 24px rgba(0, 0, 0, 0.1)" }}
                 className="bg-white p-6 rounded-xl shadow-md"
               >
-                <div className="text-4xl mb-4">{tool.icon}</div>
+                <img
+                  src={tool.iconUrl}
+                  alt={`${tool.title} logo`}
+                  className="w-16 h-16 object-contain mb-4 mx-auto"
+                  onError={(e) => (e.target.src = "https://via.placeholder.com/64?text=Logo")}
+                />
                 <h3 className="text-xl font-semibold mb-2 font-roboto">{tool.title}</h3>
                 <p className="text-gray-600 mb-4">{tool.description}</p>
                 <a
