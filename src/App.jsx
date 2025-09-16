@@ -18,22 +18,22 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading delay (e.g., API calls, assets, etc.)
+
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // 2 sec
+    }, 2000); 
 
     return () => clearTimeout(timer);
   }, []);
 
   if (loading) {
-    return <Loader />;   // 
+    return <Loader />;   
   }
 
   return (
     <Router>
       <Navbar />
-      <div className="pt-16"> {/* to push content below fixed navbar */}
+      <div className="pt-16"> 
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about/*" element={<About />} />
