@@ -11,8 +11,10 @@ import Mobiledev from './components/Mobiledev'
 import AIML from './components/AIML'
 import Tools from './components/Tools'
 import Ourmission from './components/Ourmission'
-import Loader from './components/Loading'  
-import Portfolio from './components/projects/portfolio'
+import Loader from './components/Loading'
+
+// ✅ Correct imports (match actual filenames exactly)
+import Portfolio from './components/projects/Portfolio'
 import Todo from './components/projects/Todo'
 import Ecommerce from './components/projects/Ecommerce'
 import Notetaking from './components/projects/Notetaking'
@@ -21,7 +23,6 @@ const App = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-
     const timer = setTimeout(() => {
       setLoading(false);
     }, 2000); 
@@ -46,12 +47,13 @@ const App = () => {
           <Route path="/mobiledev" element={<Mobiledev />} />
           <Route path="/aiml" element={<AIML />} />
           <Route path="/tools" element={<Tools />} />
-          <Route path="/ourmission" element={<Ourmission/>} />
-          <Route path="components/projects/Portfolio" element={<Portfolio/>} />
-          <Route path="components/projects/Todo" element={<Portfolio/>} />
-          <Route path="components/projects/Ecommerce" element={<Ecommerce/>} />
-          <Route path="components/projects/Notetaking" element={<Notetaking/>} />
-          
+          <Route path="/ourmission" element={<Ourmission />} />
+
+          {/* ✅ Clean routes for projects */}
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/todo" element={<Todo />} />
+          <Route path="/ecommerce" element={<Ecommerce />} />
+          <Route path="/notetaking" element={<Notetaking />} />
         </Routes>
       </div>
     </Router>

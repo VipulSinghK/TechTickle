@@ -118,7 +118,7 @@ export default function Mobiledev() {
     {
       title: "Note-Taking App",
       description: "Create a mobile app to manage notes with local storage.",
-      link: "/components/projects/Notetaking",
+      link: "/notetaking",
       illustration: "https://illustrations.popsy.co/red/podcast-listening.svg",
     },
     {

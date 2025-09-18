@@ -116,26 +116,26 @@ export default function Webdev() {
   ];
 
   // Sample projects data
-  const sampleProjects = [
-    {
-      title: "Personal Portfolio",
-      description: "Showcase your skills with a responsive portfolio site.",
-      link: "/components/projects/Portfolio",
-      illustration: "https://illustrations.popsy.co/sky/web-design.svg",
-    },
-    {
-      title: "To-Do List App",
-      description: "Build an interactive task manager with JavaScript.",
-      link: "/components/projects/Todo",
-      illustration: "https://illustrations.popsy.co/sky/business-analysis.svg",
-    },
-    {
-      title: "E-Commerce Landing Page",
-      description: "Create a product page with modern design principles.",
-      link: "/components/projects/Ecommerce",
-      illustration: "https://illustrations.popsy.co/sky/shopping-cart.svg",
-    },
-  ];
+const sampleProjects = [
+  {
+    title: "Personal Portfolio",
+    description: "Showcase your skills with a responsive portfolio site.",
+    link: "/portfolio", 
+    illustration: "https://illustrations.popsy.co/sky/web-design.svg",
+  },
+  {
+    title: "To-Do List App",
+    description: "Build an interactive task manager with JavaScript.",
+    link: "/todo", // 
+    illustration: "https://illustrations.popsy.co/sky/business-analysis.svg",
+  },
+  {
+    title: "E-Commerce Landing Page",
+    description: "Create a product page with modern design principles.",
+    link: "/ecommerce", 
+    illustration: "https://illustrations.popsy.co/sky/shopping-cart.svg",
+  },
+];
 
   const toggleStep = (index) => {
     setOpenStep(openStep === index ? null : index);
