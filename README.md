@@ -42,7 +42,7 @@ Our mission: **“Make Tech Simple and Accessible for Everyone.”**
 - **Frontend:** [React](https://react.dev/) + [Vite](https://vitejs.dev/)  
 - **Styling:** [TailwindCSS](https://tailwindcss.com/) + [Framer Motion](https://www.framer.com/motion/)  
 - **UI Components:** [shadcn/ui](https://ui.shadcn.com/) + [Lucide Icons](https://lucide.dev/)  
-- **Deployment:** *(Add Netlify/Vercel/GitHub Pages if applicable)*  
+- **Deployment:**   
 
 ---
 
