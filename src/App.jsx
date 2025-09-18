@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import About from './components/About'
-import Projects from './components/Projects'
 import Login from './components/Login'
 import Signup from './components/Signup'
 import Webdev from './components/Webdev'
@@ -13,6 +12,10 @@ import AIML from './components/AIML'
 import Tools from './components/Tools'
 import Ourmission from './components/Ourmission'
 import Loader from './components/Loading'  
+import Portfolio from './components/projects/portfolio'
+import Todo from './components/projects/Todo'
+import Ecommerce from './components/projects/Ecommerce'
+import Notetaking from './components/projects/Notetaking'
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -37,14 +40,18 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about/*" element={<About />} />
-          <Route path="/projects/*" element={<Projects />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/webdev" element={<Webdev />} />
           <Route path="/mobiledev" element={<Mobiledev />} />
           <Route path="/aiml" element={<AIML />} />
           <Route path="/tools" element={<Tools />} />
-          <Route path="/ourmission" element={<Ourmission />} />
+          <Route path="/ourmission" element={<Ourmission/>} />
+          <Route path="components/projects/Portfolio" element={<Portfolio/>} />
+          <Route path="components/projects/Todo" element={<Portfolio/>} />
+          <Route path="components/projects/Ecommerce" element={<Ecommerce/>} />
+          <Route path="components/projects/Notetaking" element={<Notetaking/>} />
+          
         </Routes>
       </div>
     </Router>

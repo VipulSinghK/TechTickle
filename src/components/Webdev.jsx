@@ -120,19 +120,19 @@ export default function Webdev() {
     {
       title: "Personal Portfolio",
       description: "Showcase your skills with a responsive portfolio site.",
-      link: "/resources/projects/portfolio",
+      link: "/components/projects/Portfolio",
       illustration: "https://illustrations.popsy.co/sky/web-design.svg",
     },
     {
       title: "To-Do List App",
       description: "Build an interactive task manager with JavaScript.",
-      link: "/resources/projects/todo",
+      link: "/components/projects/Todo",
       illustration: "https://illustrations.popsy.co/sky/business-analysis.svg",
     },
     {
       title: "E-Commerce Landing Page",
       description: "Create a product page with modern design principles.",
-      link: "/resources/projects/ecommerce",
+      link: "/components/projects/Ecommerce",
       illustration: "https://illustrations.popsy.co/sky/shopping-cart.svg",
     },
   ];
