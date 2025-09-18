@@ -117,19 +117,19 @@ export default function AIML() {
     {
       title: "Price Prediction Model",
       description: "Build a model to predict prices using linear regression.",
-      link: "/resources/projects/price-prediction",
+      link: "/priceprediction",
       illustration: "https://illustrations.popsy.co/purple/calculator.svg",
     },
     {
       title: "Image Classifier",
       description: "Create an app to classify images with a neural network.",
-      link: "/resources/projects/image-classifier",
+      link: "/imageclassifier",
       illustration: "https://illustrations.popsy.co/purple/looking-at-the-map.svg",
     },
     {
       title: "Chatbot",
       description: "Develop a basic chatbot with NLP capabilities.",
-      link: "/resources/projects/chatbot",
+      link: "/chatbot",
       illustration: "https://illustrations.popsy.co/purple/man-on-laptop-twitch.svg",
     },
   ];

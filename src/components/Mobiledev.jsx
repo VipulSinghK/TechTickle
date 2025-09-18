@@ -124,13 +124,13 @@ export default function Mobiledev() {
     {
       title: "Weather App",
       description: "Build an app that fetches real-time weather data from an API.",
-      link: "/resources/projects/weather",
+      link: "/weather",
       illustration: "https://illustrations.popsy.co/red/working-vacation.svg",
     },
     {
       title: "Chat App",
       description: "Develop a real-time chat app with basic messaging features.",
-      link: "/resources/projects/chat",
+      link: "/chatapp ",
       illustration: "https://illustrations.popsy.co/red/video-call.svg",
     },
   ];

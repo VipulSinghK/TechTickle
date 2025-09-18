@@ -32,8 +32,8 @@ const Navbar = () => {
 
   const resourcesDropdown = [
     { name: "Tools", path: "/Tools" },
-    { name: "Docs & Guides", path: "/resources/docs" },
-    { name: "Starter Projects", path: "/resources/projects" },
+    { name: "Docs & Guides", path: "/Docs&Guide" },
+    { name: "Starter Projects", path: "/ProjectsPage" },
   ];
 
   const aboutDropdown = [
