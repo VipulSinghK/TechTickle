@@ -117,7 +117,7 @@ export default function AIML() {
     {
       title: "Price Prediction Model",
       description: "Build a model to predict prices using linear regression.",
-      link: "/priceprediction",
+      link: "/PricePrediction",
       illustration: "https://illustrations.popsy.co/purple/calculator.svg",
     },
     {

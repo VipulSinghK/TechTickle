@@ -22,7 +22,7 @@ import Ecommerce from './components/projects/Ecommerce'
 import Notetaking from './components/projects/Notetaking'
 import Weather from './components/projects/Weather'
 import ChatApp from './components/projects/ChatApp'
-import PricePrediction from './components/projects/Priceprediction'
+import PricePrediction from './components/projects/PricePrediction'
 import ImageClassifier from './components/projects/ImageClassifier'
 import ChatBot from './components/projects/ChatBot'
 import ProjectsPage from './components/ProjectsPage'
@@ -67,7 +67,7 @@ const App = () => {
           <Route path="/notetaking" element={<Notetaking />} />
           <Route path="/weather" element={<Weather />} />
           <Route path="/chatapp" element={<ChatApp />} />
-          <Route path="/priceprediction" element={<PricePrediction />} />
+          <Route path="/PricePrediction" element={<PricePrediction />} />
           <Route path="/imageclassifier" element={<ImageClassifier />} />
           <Route path="/Chatbot" element={<ChatBot />} />
         </Routes>
