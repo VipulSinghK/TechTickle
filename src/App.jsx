@@ -13,7 +13,8 @@ import Tools from './components/Tools'
 import Ourmission from './components/Ourmission'
 import Loader from './components/Loading'
 import DocsandGuide from './components/Docs&Guide'
-
+import ProjectsPage from './components/ProjectsPage'
+import OurTeam from './components/OurTeam'
 
 
 import Portfolio from './components/projects/Portfolio'
@@ -25,7 +26,7 @@ import ChatApp from './components/projects/ChatApp'
 import PricePrediction from './components/projects/PricePrediction'
 import ImageClassifier from './components/projects/ImageClassifier'
 import ChatBot from './components/projects/ChatBot'
-import ProjectsPage from './components/ProjectsPage'
+
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -70,6 +71,7 @@ const App = () => {
           <Route path="/PricePrediction" element={<PricePrediction />} />
           <Route path="/imageclassifier" element={<ImageClassifier />} />
           <Route path="/Chatbot" element={<ChatBot />} />
+          <Route path="/OurTeam" element={<OurTeam />} />
         </Routes>
       </div>
     </Router>

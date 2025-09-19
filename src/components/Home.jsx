@@ -140,17 +140,17 @@ export default function Home() {
   const testimonials = [
     {
       quote: "TechTickle’s roadmaps made learning web development so approachable!",
-      author: "Alex Johnson",
+      author: "Vipul Singh",
       role: "Aspiring Developer",
     },
     {
       quote: "The resources section saved me hours of searching for the right tools.",
-      author: "Sarah Lee",
+      author: "Vipul Singh",
       role: "Mobile Developer",
     },
     {
       quote: "I love the community support—it’s like having a mentor on demand!",
-      author: "Mike Chen",
+      author: "Vipul Singh",
       role: "AI Enthusiast",
     },
   ];
@@ -225,7 +225,7 @@ export default function Home() {
               }}
             >
               <Link
-                to="/resources/tools"
+                to="/tools"
                 className="px-8 py-4 border-2 border-amber-300 text-amber-300 rounded-full font-semibold hover:bg-amber-300 hover:text-indigo-900 transition-colors duration-300 contrast-125"
                 aria-label="Explore learning resources"
               >

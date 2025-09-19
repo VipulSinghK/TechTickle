@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -21,7 +20,13 @@ const Navbar = () => {
 
   const itemVariants = {
     hidden: { opacity: 0, x: -20 },
-    visible: { opacity: 1, x: 0 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.3 } },
+  };
+
+  const dropdownVariants = {
+    hidden: { opacity: 0, y: -10, scale: 0.95 },
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.2 } },
+    exit: { opacity: 0, y: -10, scale: 0.95, transition: { duration: 0.2 } },
   };
 
   const roadmapDropdown = [
@@ -37,7 +42,7 @@ const Navbar = () => {
   ];
 
   const aboutDropdown = [
-    { name: "Our Team", path: "/about/team" },
+    { name: "Our Team", path: "/OurTeam" },
     { name: "Our Mission", path: "/Ourmission" },
     { name: "History", path: "/about/history" },
   ];
@@ -47,33 +52,33 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-white shadow-lg fixed top-0 left-0 w-full z-50">
+    <nav className="bg-gradient-to-r from-white to-gray-100 shadow-lg fixed top-0 left-0 w-full z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         {/* Logo */}
         <motion.div
-  initial={{ opacity: 0, x: -20 }}
-  animate={{ opacity: 1, x: 0 }}
-  transition={{ duration: 0.5 }}
-  className="h-8 flex items-center" // Keep navbar height small
->
-  <Link to="/" aria-label="TechTickle Home">
-    <img
-      src="/images/techtickle-logo.png"
-      alt="TechTickle Logo"
-      className="h-16 w-auto max-w-[200px] object-contain" // Bigger logo but independent of parent height
-      onError={(e) =>
-        (e.target.src =
-          "https://via.placeholder.com/200x48?text=TechTickle+Logo")
-      }
-    />
-  </Link>
-</motion.div>
-
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          whileHover={{ scale: 1.05 }}
+          className="h-8 flex items-center"
+        >
+          <Link to="/" aria-label="TechTickle Home">
+            <img
+              src="/images/techtickle-logo.png"
+              alt="TechTickle Logo"
+              className="h-16 w-auto max-w-[200px] object-contain"
+              onError={(e) =>
+                (e.target.src =
+                  "https://via.placeholder.com/200x48?text=TechTickle+Logo")
+              }
+            />
+          </Link>
+        </motion.div>
 
         {/* Desktop Links */}
         <div className="hidden md:flex gap-8 items-center">
-          <motion.div whileHover={{ scale: 1.1 }}>
-            <Link to="/" className="text-gray-700 hover:text-indigo-500 transition-colors duration-200">
+          <motion.div whileHover={{ scale: 1.1, color: '#4f46e5' }} whileTap={{ scale: 0.95 }}>
+            <Link to="/" className="text-gray-700 hover:text-indigo-500 transition-colors duration-200 font-roboto">
               Home
             </Link>
           </motion.div>
@@ -85,8 +90,9 @@ const Navbar = () => {
             onMouseLeave={() => setDropdownOpen(null)}
           >
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              className="text-gray-700 hover:text-indigo-500 transition-colors duration-200"
+              whileHover={{ scale: 1.1, color: '#4f46e5' }}
+              whileTap={{ scale: 0.95 }}
+              className="text-gray-700 hover:text-indigo-500 transition-colors duration-200 font-roboto"
               aria-haspopup="true"
               aria-expanded={dropdownOpen === "roadmaps"}
               aria-label="Roadmaps menu"
@@ -96,19 +102,21 @@ const Navbar = () => {
             <AnimatePresence>
               {dropdownOpen === "roadmaps" && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 bg-white shadow-lg rounded-md py-2 min-w-[180px]"
+                  variants={dropdownVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  className="absolute top-full left-0 bg-white shadow-lg rounded-md py-2 min-w-[180px] border border-gray-200"
                   role="menu"
                 >
                   {roadmapDropdown.map((item) => (
                     <Link
                       key={item.path}
                       to={item.path}
-                      className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200"
+                      className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200 font-roboto"
                       role="menuitem"
+                      onClick={() => setDropdownOpen(null)}
+                      tabIndex={0}
                     >
                       {item.name}
                     </Link>
@@ -125,8 +133,9 @@ const Navbar = () => {
             onMouseLeave={() => setDropdownOpen(null)}
           >
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              className="text-gray-700 hover:text-indigo-500 transition-colors duration-200"
+              whileHover={{ scale: 1.1, color: '#4f46e5' }}
+              whileTap={{ scale: 0.95 }}
+              className="text-gray-700 hover:text-indigo-500 transition-colors duration-200 font-roboto"
               aria-haspopup="true"
               aria-expanded={dropdownOpen === "resources"}
               aria-label="Resources menu"
@@ -136,19 +145,21 @@ const Navbar = () => {
             <AnimatePresence>
               {dropdownOpen === "resources" && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 bg-white shadow-lg rounded-md py-2 min-w-[180px]"
+                  variants={dropdownVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  className="absolute top-full left-0 bg-white shadow-lg rounded-md py-2 min-w-[180px] border border-gray-200"
                   role="menu"
                 >
                   {resourcesDropdown.map((item) => (
                     <Link
                       key={item.path}
                       to={item.path}
-                      className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200"
+                      className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200 font-roboto"
                       role="menuitem"
+                      onClick={() => setDropdownOpen(null)}
+                      tabIndex={0}
                     >
                       {item.name}
                     </Link>
@@ -165,8 +176,9 @@ const Navbar = () => {
             onMouseLeave={() => setDropdownOpen(null)}
           >
             <motion.button
-              whileHover={{ scale: 1.1 }}
-              className="text-gray-700 hover:text-indigo-500 transition-colors duration-200"
+              whileHover={{ scale: 1.1, color: '#4f46e5' }}
+              whileTap={{ scale: 0.95 }}
+              className="text-gray-700 hover:text-indigo-500 transition-colors duration-200 font-roboto"
               aria-haspopup="true"
               aria-expanded={dropdownOpen === "about"}
               aria-label="About menu"
@@ -176,19 +188,21 @@ const Navbar = () => {
             <AnimatePresence>
               {dropdownOpen === "about" && (
                 <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 bg-white shadow-lg rounded-md py-2 min-w-[180px]"
+                  variants={dropdownVariants}
+                  initial="hidden"
+                  animate="visible"
+                  exit="exit"
+                  className="absolute top-full left-0 bg-white shadow-lg rounded-md py-2 min-w-[180px] border border-gray-200"
                   role="menu"
                 >
                   {aboutDropdown.map((item) => (
                     <Link
                       key={item.path}
                       to={item.path}
-                      className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200"
+                      className="block px-4 py-2 text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200 font-roboto"
                       role="menuitem"
+                      onClick={() => setDropdownOpen(null)}
+                      tabIndex={0}
                     >
                       {item.name}
                     </Link>
@@ -198,20 +212,20 @@ const Navbar = () => {
             </AnimatePresence>
           </div>
 
-          <motion.div whileHover={{ scale: 1.1 }}>
-            <Link to="/community" className="text-gray-700 hover:text-indigo-500 transition-colors duration-200">
+          <motion.div whileHover={{ scale: 1.1, color: '#4f46e5' }} whileTap={{ scale: 0.95 }}>
+            <Link to="/community" className="text-gray-700 hover:text-indigo-500 transition-colors duration-200 font-roboto">
               Community
             </Link>
           </motion.div>
 
-          <motion.div whileHover={{ scale: 1.1 }}>
-            <Link to="/login" className="text-gray-700 hover:text-indigo-500 transition-colors duration-200">
+          <motion.div whileHover={{ scale: 1.1, color: '#4f46e5' }} whileTap={{ scale: 0.95 }}>
+            <Link to="/login" className="text-gray-700 hover:text-indigo-500 transition-colors duration-200 font-roboto">
               Login
             </Link>
           </motion.div>
 
-          <motion.div whileHover={{ scale: 1.1 }}>
-            <Link to="/search" className="text-gray-700 hover:text-indigo-500 transition-colors duration-200" aria-label="Search">
+          <motion.div whileHover={{ scale: 1.1, color: '#4f46e5' }} whileTap={{ scale: 0.95 }}>
+            <Link to="/search" className="text-gray-700 hover:text-indigo-500 transition-colors duration-200 font-roboto" aria-label="Search">
               🔍
             </Link>
           </motion.div>
@@ -219,7 +233,7 @@ const Navbar = () => {
 
         {/* Mobile Hamburger */}
         <motion.button
-          className="md:hidden text-2xl"
+          className="md:hidden text-2xl text-gray-700"
           onClick={() => setIsOpen(!isOpen)}
           whileTap={{ scale: 0.9 }}
           aria-label={isOpen ? "Close menu" : "Open menu"}
@@ -234,159 +248,184 @@ const Navbar = () => {
         </motion.button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu with Backdrop */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            variants={menuVariants}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            className="md:hidden bg-white shadow-lg"
-          >
-            <motion.div variants={itemVariants} className="border-b">
-              <Link
-                to="/"
-                className="block p-3 text-center text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Home
-              </Link>
-            </motion.div>
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.5 }}
+              exit={{ opacity: 0 }}
+              className="md:hidden fixed inset-0 bg-black z-40"
+              onClick={() => setIsOpen(false)}
+              aria-hidden="true"
+            />
+            <motion.div
+              variants={menuVariants}
+              initial="hidden"
+              animate="visible"
+              exit="exit"
+              className="md:hidden bg-white shadow-lg z-50"
+            >
+              <motion.div variants={itemVariants} className="border-b border-gray-200">
+                <Link
+                  to="/"
+                  className="block p-3 text-center text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200 font-roboto"
+                  onClick={() => setIsOpen(false)}
+                  tabIndex={0}
+                >
+                  Home
+                </Link>
+              </motion.div>
 
-            <motion.div variants={itemVariants} className="border-b">
-              <button
-                className="w-full p-3 text-center text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200"
-                onClick={() => toggleMobileDropdown("roadmaps")}
-                aria-expanded={mobileDropdown === "roadmaps"}
-                aria-label="Roadmaps menu"
-              >
-                Roadmaps
-              </button>
-              <AnimatePresence>
-                {mobileDropdown === "roadmaps" && (
-                  <motion.div
-                    variants={menuVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    className="bg-gray-50"
-                  >
-                    {roadmapDropdown.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className="block p-3 text-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-500 transition-colors duration-200"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+              <motion.div variants={itemVariants} className="border-b border-gray-200">
+                <button
+                  className="w-full p-3 text-center text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200 font-roboto"
+                  onClick={() => toggleMobileDropdown("roadmaps")}
+                  aria-expanded={mobileDropdown === "roadmaps"}
+                  aria-label="Roadmaps menu"
+                >
+                  Roadmaps
+                </button>
+                <AnimatePresence>
+                  {mobileDropdown === "roadmaps" && (
+                    <motion.div
+                      variants={menuVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      className="bg-gray-50"
+                    >
+                      {roadmapDropdown.map((item) => (
+                        <Link
+                          key={item.path}
+                          to={item.path}
+                          className="block p-3 text-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-500 transition-colors duration-200 font-roboto"
+                          onClick={() => {
+                            setIsOpen(false);
+                            setMobileDropdown(null);
+                          }}
+                          tabIndex={0}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
 
-            <motion.div variants={itemVariants} className="border-b">
-              <button
-                className="w-full p-3 text-center text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200"
-                onClick={() => toggleMobileDropdown("resources")}
-                aria-expanded={mobileDropdown === "resources"}
-                aria-label="Resources menu"
-              >
-                Resources
-              </button>
-              <AnimatePresence>
-                {mobileDropdown === "resources" && (
-                  <motion.div
-                    variants={menuVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    className="bg-gray-50"
-                  >
-                    {resourcesDropdown.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className="block p-3 text-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-500 transition-colors duration-200"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+              <motion.div variants={itemVariants} className="border-b border-gray-200">
+                <button
+                  className="w-full p-3 text-center text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200 font-roboto"
+                  onClick={() => toggleMobileDropdown("resources")}
+                  aria-expanded={mobileDropdown === "resources"}
+                  aria-label="Resources menu"
+                >
+                  Resources
+                </button>
+                <AnimatePresence>
+                  {mobileDropdown === "resources" && (
+                    <motion.div
+                      variants={menuVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      className="bg-gray-50"
+                    >
+                      {resourcesDropdown.map((item) => (
+                        <Link
+                          key={item.path}
+                          to={item.path}
+                          className="block p-3 text-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-500 transition-colors duration-200 font-roboto"
+                          onClick={() => {
+                            setIsOpen(false);
+                            setMobileDropdown(null);
+                          }}
+                          tabIndex={0}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
 
-            <motion.div variants={itemVariants} className="border-b">
-              <button
-                className="w-full p-3 text-center text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200"
-                onClick={() => toggleMobileDropdown("about")}
-                aria-expanded={mobileDropdown === "about"}
-                aria-label="About menu"
-              >
-                About
-              </button>
-              <AnimatePresence>
-                {mobileDropdown === "about" && (
-                  <motion.div
-                    variants={menuVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="exit"
-                    className="bg-gray-50"
-                  >
-                    {aboutDropdown.map((item) => (
-                      <Link
-                        key={item.path}
-                        to={item.path}
-                        className="block p-3 text-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-500 transition-colors duration-200"
-                        onClick={() => setIsOpen(false)}
-                      >
-                        {item.name}
-                      </Link>
-                    ))}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.div>
+              <motion.div variants={itemVariants} className="border-b border-gray-200">
+                <button
+                  className="w-full p-3 text-center text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200 font-roboto"
+                  onClick={() => toggleMobileDropdown("about")}
+                  aria-expanded={mobileDropdown === "about"}
+                  aria-label="About menu"
+                >
+                  About
+                </button>
+                <AnimatePresence>
+                  {mobileDropdown === "about" && (
+                    <motion.div
+                      variants={menuVariants}
+                      initial="hidden"
+                      animate="visible"
+                      exit="exit"
+                      className="bg-gray-50"
+                    >
+                      {aboutDropdown.map((item) => (
+                        <Link
+                          key={item.path}
+                          to={item.path}
+                          className="block p-3 text-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-500 transition-colors duration-200 font-roboto"
+                          onClick={() => {
+                            setIsOpen(false);
+                            setMobileDropdown(null);
+                          }}
+                          tabIndex={0}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </motion.div>
 
-            <motion.div variants={itemVariants} className="border-b">
-              <Link
-                to="/community"
-                className="block p-3 text-center text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Community
-              </Link>
-            </motion.div>
+              <motion.div variants={itemVariants} className="border-b border-gray-200">
+                <Link
+                  to="/community"
+                  className="block p-3 text-center text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200 font-roboto"
+                  onClick={() => setIsOpen(false)}
+                  tabIndex={0}
+                >
+                  Community
+                </Link>
+              </motion.div>
 
-            <motion.div variants={itemVariants}>
-              <Link
-                to="/login"
-                className="block p-3 text-center text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Login
-              </Link>
+              <motion.div variants={itemVariants}>
+                <Link
+                  to="/login"
+                  className="block p-3 text-center text-gray-700 hover:bg-indigo-50 hover:text-indigo-500 transition-colors duration-200 font-roboto"
+                  onClick={() => setIsOpen(false)}
+                  tabIndex={0}
+                >
+                  Login
+                </Link>
+              </motion.div>
             </motion.div>
-          </motion.div>
+          </>
         )}
       </AnimatePresence>
 
       {/* Inline CSS for Font */}
-<style>
-  {`
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
-    .font-roboto {
-      font-family: 'Roboto', sans-serif;
-    }
-  `}
-</style>
-</nav>
-);
+      <style>
+        {`
+          @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+          .font-roboto {
+            font-family: 'Roboto', sans-serif;
+          }
+        `}
+      </style>
+    </nav>
+  );
 };
 
 export default Navbar;
