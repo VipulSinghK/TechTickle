@@ -103,13 +103,13 @@ export default function Home() {
     {
       title: "Learning Guides",
       description: "Access curated tutorials and documentation for all skill levels.",
-      link: "/resources/docs",
+      link: "/Docs&Guide",
       icon: "📚",
     },
     {
       title: "Starter Projects",
       description: "Kickstart your portfolio with beginner-friendly project templates.",
-      link: "/resources/projects",
+      link: "/ProjectsPage",
       icon: "🚀",
     },
   ];
