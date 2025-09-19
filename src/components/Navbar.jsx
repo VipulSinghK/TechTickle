@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import { roadmapDropdown , resourcesDropdown } from "./menuData";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);

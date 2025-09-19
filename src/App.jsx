@@ -15,6 +15,7 @@ import Loader from './components/Loading'
 import DocsandGuide from './components/Docs&Guide'
 import ProjectsPage from './components/ProjectsPage'
 import OurTeam from './components/OurTeam'
+import Search from './components/Search'
 
 
 import Portfolio from './components/projects/Portfolio'
@@ -59,6 +60,8 @@ const App = () => {
           <Route path="/ourmission" element={<Ourmission />} />
           <Route path="/Docs&Guide" element={<DocsandGuide />} />
           <Route path="/ProjectsPage" element={<ProjectsPage />} />
+          <Route path="/search" element={<Search />} />
+
 
 
           {/* Projects */}
