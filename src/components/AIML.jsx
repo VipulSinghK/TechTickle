@@ -140,7 +140,7 @@ export default function AIML() {
 
   return (
     <div className="bg-gray-50">
-      {/* Hero Section */}
+
       <section className="relative py-20 px-6 bg-gradient-to-br from-indigo-500 via-teal-400 to-pink-500 text-white text-center">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-10"></div>
