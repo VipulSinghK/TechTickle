@@ -1,4 +1,6 @@
-# 🌐 TechTickle – Tech Made Simple
+Try it Out Here -> [https://frabjous-starlight-d515f9.netlify.app/]
+
+# 🌐 TechTickle – Tech Made Simple  
 
 TechTickle is an educational platform dedicated to demystifying the process of building **Web Applications, Mobile Applications, and AI/ML Applications**.  
 Whether you’re a student, a beginner, or a self-learner, TechTickle provides **step-by-step tutorials, curated tools, and structured roadmaps** to help you turn your ideas into real-world projects—no prior experience required.
