@@ -17,7 +17,6 @@ import ProjectsPage from './components/ProjectsPage'
 import OurTeam from './components/OurTeam'
 import Search from './components/Search'
 
-
 import Portfolio from './components/projects/Portfolio'
 import Todo from './components/projects/Todo'
 import Ecommerce from './components/projects/Ecommerce'
@@ -27,7 +26,6 @@ import ChatApp from './components/projects/ChatApp'
 import PricePrediction from './components/projects/PricePrediction'
 import ImageClassifier from './components/projects/ImageClassifier'
 import ChatBot from './components/projects/ChatBot'
-
 
 const App = () => {
   const [loading, setLoading] = useState(true);
