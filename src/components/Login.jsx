@@ -13,13 +13,13 @@ export default function Login() {
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
 
-  // Handle form input changes
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  // Validate form
+ 
   const validateForm = () => {
     const newErrors = {};
     if (!formData.email) newErrors.email = "Email is required";
@@ -28,16 +28,16 @@ export default function Login() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handle form submission
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Placeholder for login submission logic
+ 
       console.log("Login", formData);
     }
   };
 
-  // Animation variants
+
   const formVariants = {
     hidden: { opacity: 0, x: -20 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.5 } },
@@ -51,7 +51,7 @@ export default function Login() {
 
   return (
     <section className="min-h-screen flex flex-col md:flex-row items-center justify-center bg-gradient-to-br from-teal-100 to-coral-100 px-6 py-12">
-      {/* Illustration */}
+   
       <motion.div
         initial={{ opacity: 0, x: -50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -65,7 +65,7 @@ export default function Login() {
         />
       </motion.div>
 
-      {/* Form Container */}
+    
       <motion.div
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
@@ -74,7 +74,7 @@ export default function Login() {
       >
         <h2 className="text-3xl font-bold text-indigo-900 text-center mb-6">Login to TechTickle</h2>
 
-        {/* Form */}
+        
         <AnimatePresence mode="wait">
           <motion.form
             key="login"
@@ -153,7 +153,7 @@ export default function Login() {
           </div>
         </div>
 
-        {/* Signup Link */}
+  
         <p className="mt-6 text-center text-gray-500">
           Haven't registered?{" "}
           <Link to="/Signup" className="text-indigo-600 hover:underline font-semibold">
@@ -161,7 +161,7 @@ export default function Login() {
           </Link>
         </p>
 
-        {/* Back to Home Link */}
+   
         <p className="mt-4 text-center text-gray-500">
           Back to <Link to="/" className="text-indigo-600 hover:underline">Home</Link>
         </p>
