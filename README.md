@@ -48,7 +48,7 @@ Learning software development can be overwhelming: countless tools, frameworks, 
 - **Frontend:** [React](https://react.dev/) + [Vite](https://vitejs.dev/)
 - **Styling:** [TailwindCSS](https://tailwindcss.com/) + [Framer Motion](https://www.framer.com/motion/)
 - **UI Components:** [shadcn/ui](https://ui.shadcn.com/) + [Lucide Icons](https://lucide.dev/)
-- **Deployment:** [Vercel](https://vercel.com/) / [Netlify](https://www.netlify.com/) *(planned)*
+- **Deployment:** [Netlify](https://www.netlify.com/)
 - **Version Control:** [GitHub](https://github.com/)
 
 ---
